@@ -1,0 +1,30 @@
+.navbar__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-black);
+}
+
+.navbar__logo img {
+  max-width: 76px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: flex-end;
+}
+
+.navbar__links ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.navbar__link a {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__link a span.navbar__link-numbers {
+  font-size: 0.8rem;
+}

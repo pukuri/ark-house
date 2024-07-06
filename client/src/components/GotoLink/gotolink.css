@@ -1,0 +1,40 @@
+.btn__link-default {
+  position: relative;
+  width: fit-content;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 9px 10px 9px 32px;
+
+  display: flex;
+  align-items: center;
+}
+
+.btn__link-default span {
+  z-index: 2;
+  transition: ease 0.2s;
+}
+
+.btn__link-default svg {
+  color: var(--color-black);
+  z-index: 2;
+  margin-left: 13px;
+}
+
+.btn__link-default .white-box {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  background-color: var(--color-white);
+
+  right: 3px;
+
+  transition: ease 0.5s;
+}
+
+.btn__link-default:hover span {
+  color: var(--color-black);
+}
+
+.btn__link-default:hover .white-box {
+  width: 85%;
+}
