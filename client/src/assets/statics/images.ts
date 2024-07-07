@@ -7,6 +7,9 @@ import servicesimg1 from './images/servicesimg1.png';
 import servicesimg2 from './images/servicesimg2.png';
 import servicesimg3 from './images/servicesimg3.png';
 import servicesimg4 from './images/servicesimg4.png';
+import historyimg1 from './images/historyimg1.png';
+import historyimg2 from './images/historyimg2.png';
+import project1img1 from './images/project1img1.png';
 
 const images = {
   logo,
@@ -18,6 +21,9 @@ const images = {
   servicesimg2,
   servicesimg3,
   servicesimg4,
+  historyimg1,
+  historyimg2,
+  project1img1
 }
 
 export default images

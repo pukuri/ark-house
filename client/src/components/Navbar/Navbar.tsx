@@ -16,10 +16,10 @@ export default function Navbar() {
         <div className="navbar__links">
           <ul>
             <li className="navbar__link">
-              <a href="#about">
+              <Link to="/history">
                 <span className="navbar__link-numbers">1</span>
                 <span>About</span>
-              </a>
+              </Link>
             </li>
             <li className="navbar__link">
               <a href="#services">

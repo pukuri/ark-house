@@ -54,7 +54,7 @@ export default function Services() {
   return (
     <>
       <div className="services__wrapper">
-        <div className="services__heading component-wrapper">
+        <div className="component-wrapper section-heading">
           <h1>Services</h1>
           <GotoLink text='Discover All' link='/projects' />
         </div>
