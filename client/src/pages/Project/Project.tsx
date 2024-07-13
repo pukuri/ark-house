@@ -1,51 +1,38 @@
 import { GoArrowRight } from "react-icons/go";
-import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import images from "../../assets/statics/images";
+import { Link, useParams } from "react-router-dom";
 
 import './project.css'
+import { useEffect, useState } from "react";
 
 const projectMockData = {
+  name: 'Central Saint Giles',
   location: 'London',
   area: '70.000 m2',
   cost: '130 mil NOK',
   year: 2019,
-  client: 'Vanke',
-  desc: 'Nanchang Wave is a landscape based community centre with a varied program forming the heart of a large residential development. The double helix structure towards the wetland area gives 360 degrees overview of the neighbourhood as one walks up to the panoramic gallery at top.'
-}
-
-function ProjectSummary() {
-  return (
-    <div className="project__summary-texts">
-      <div className="project__summary-text">
-        <span className="project__summary-key">Location</span>
-        <span className="project__summary-value">{projectMockData.location}</span>
-      </div>
-
-      <div className="project__summary-text">
-        <span className="project__summary-key">Area</span>
-        <span className="project__summary-value">{projectMockData.area}</span>
-      </div>
-
-      <div className="project__summary-text">
-        <span className="project__summary-key">Construction Cost</span>
-        <span className="project__summary-value">{projectMockData.cost}</span>
-      </div>
-
-      <div className="project__summary-text">
-        <span className="project__summary-key">Year</span>
-        <span className="project__summary-value">{projectMockData.year}</span>
-      </div>
-
-      <div className="project__summary-text">
-        <span className="project__summary-key">Client</span>
-        <span className="project__summary-value">{projectMockData.client}</span>
-      </div>
-    </div>
-  )
+  thumbnail: '',
+  description: 'Nanchang Wave is a landscape based community centre with a varied program forming the heart of a large residential development. The double helix structure towards the wetland area gives 360 degrees overview of the neighbourhood as one walks up to the panoramic gallery at top.'
 }
 
 export default function Project() {
+  const { id } = useParams();
+  const [projectDetail, setProjectDetail] = useState(projectMockData)
+
+  function getProjectData() {
+    console.log(id)
+
+    fetch(`http://localhost:3000/api/v1/projects/${id}`)
+      .then(results => results.json())
+      .then(data => { 
+        console.log(data)
+        setProjectDetail(data)
+      })
+  }
+
+  useEffect(() => {
+    getProjectData()
+  }, [])
+
   return (
     <>
       <div className="project__wrapper component-wrapper">
@@ -58,17 +45,42 @@ export default function Project() {
             <span>Projects</span>
           </Link>
           <GoArrowRight size={20} className="breadcrumb__arrow" />
-          <span>Central Saint Giles</span>
+          <span>{projectDetail.name}</span>
         </div>
 
         <div className="project__summary">
           <h1 className="title-default">Central Saint Giles</h1>
           <div className="project__summary-content">
-            <img src={images.project1img1} />
+            <img src={projectDetail.thumbnail} />
 
-            <ProjectSummary />
+            <div className="project__summary-texts">
+              <div className="project__summary-text">
+                <span className="project__summary-key">Location</span>
+                <span className="project__summary-value">{projectDetail.location}</span>
+              </div>
+
+              <div className="project__summary-text">
+                <span className="project__summary-key">Area</span>
+                <span className="project__summary-value">{projectDetail.area}</span>
+              </div>
+
+              <div className="project__summary-text">
+                <span className="project__summary-key">Construction Cost</span>
+                <span className="project__summary-value">{projectDetail.cost}</span>
+              </div>
+
+              <div className="project__summary-text">
+                <span className="project__summary-key">Year</span>
+                <span className="project__summary-value">{projectDetail.year}</span>
+              </div>
+
+              <div className="project__summary-text">
+                <span className="project__summary-key">Client</span>
+                <span className="project__summary-value">Vanke</span>
+              </div>
+            </div>
           </div>
-          <p>{projectMockData.desc}</p>
+          <p>{projectDetail.description}</p>
         </div>
       </div>
 

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing project photo" %>
+
+<h1>Editing project photo</h1>
+
+<%= render "form", project_photo: @project_photo %>
+
+<br>
+
+<div>
+  <%= link_to "Show this project photo", @project_photo %> |
+  <%= link_to "Back to project photos", project_photos_path %>
+</div>

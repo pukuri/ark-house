@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Project photos" %>
+
+<h1>Project photos</h1>
+
+<div id="project_photos">
+  <% @project_photos.each do |project_photo| %>
+    <%= render project_photo %>
+    <p>
+      <%= link_to "Show this project photo", project_photo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New project photo", new_project_photo_path %>
