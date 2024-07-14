@@ -1,0 +1,12 @@
+.projects__subtext h1 {
+  margin: 0;
+  font-size: 290px;
+  line-height: 1;
+  text-align: center;
+}
+
+.projects__subtext h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 35px;
+}

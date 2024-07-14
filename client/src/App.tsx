@@ -4,7 +4,7 @@ import History from './pages/History/History'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Project from './pages/Project/Project'
-import Projects from './pages/Projects'
+import Projects from './pages/Projects/Projects'
 import Footer from './components/Footer/Footer'
 
 function App() {

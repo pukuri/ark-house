@@ -1,11 +1,15 @@
 class Api::V1::ProjectsController < ApplicationController
-  # GET /projects or /projects.json
   def index
     @projects = Project.all
   end
 
-  # GET /projects/1 or /projects/1.json
   def show
     @project = Project.find(params[:id])
+  end
+
+  def photos
+    @project_photos = ProjectPhoto.where(project_id: params[:id])
+
+    render :photos
   end
 end

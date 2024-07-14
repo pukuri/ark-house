@@ -10,6 +10,7 @@ import servicesimg4 from './images/servicesimg4.png';
 import historyimg1 from './images/historyimg1.png';
 import historyimg2 from './images/historyimg2.png';
 import project1img1 from './images/project1img1.png';
+import logosmall from './images/logo-small.png';
 
 const images = {
   logo,
@@ -23,7 +24,8 @@ const images = {
   servicesimg4,
   historyimg1,
   historyimg2,
-  project1img1
+  project1img1,
+  logosmall
 }
 
 export default images

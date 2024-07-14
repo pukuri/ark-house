@@ -1,6 +1,5 @@
 import { GoArrowRight } from "react-icons/go"
 import { Link } from "react-router-dom"
-import Footer from "../../components/Footer/Footer"
 
 import './history.css'
 import images from '../../assets/statics/images';
@@ -17,6 +16,7 @@ export default function History() {
           <GoArrowRight size={20} className="breadcrumb__arrow"/>
           <span>Our history</span>
         </div>
+
         <div className="history__content-section">
           <h1 className="title-default">Who we are</h1>
 

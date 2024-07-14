@@ -52,3 +52,28 @@ h1.title-default {
   font-size: 48px;
   font-weight: 500;
 }
+
+h2.sub-title {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+img.watermark {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.thumbnail-tile-3 {
+  position: relative;
+  flex: 1 0 calc(33% - 64px);
+}
+
+.thumbnail-tile-3 img.photo {
+  width: 100%;
+}
+
+.thumbnail-tile-3 p {
+  margin: 0;
+  width: fit-content;
+}

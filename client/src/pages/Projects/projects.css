@@ -1,0 +1,15 @@
+.projects-heading__content {
+  padding-top: 32px;
+}
+
+.projects-heading__content p {
+  font-size: 20px;
+}
+
+.projects-content__wrapper {
+  padding-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 64px;
+}

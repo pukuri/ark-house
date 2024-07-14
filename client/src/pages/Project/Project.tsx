@@ -3,34 +3,53 @@ import { Link, useParams } from "react-router-dom";
 
 import './project.css'
 import { useEffect, useState } from "react";
+import ProjectGallery from "../../components/ProjectGallery/ProjectGallery";
 
-const projectMockData = {
-  name: 'Central Saint Giles',
-  location: 'London',
-  area: '70.000 m2',
-  cost: '130 mil NOK',
-  year: 2019,
+type projectDataType = {
+  name: string
+  location: string
+  area: number
+  cost: number
+  year: number
+  thumbnail: string
+  description: string
+}
+
+const projectMockData: projectDataType = {
+  name: '',
+  location: '',
+  area: 0,
+  cost: 0,
+  year: 0,
   thumbnail: '',
-  description: 'Nanchang Wave is a landscape based community centre with a varied program forming the heart of a large residential development. The double helix structure towards the wetland area gives 360 degrees overview of the neighbourhood as one walks up to the panoramic gallery at top.'
+  description: ''
 }
 
 export default function Project() {
   const { id } = useParams();
   const [projectDetail, setProjectDetail] = useState(projectMockData)
+  const [projectGallery, setProjectGallery] = useState([])
 
   function getProjectData() {
-    console.log(id)
+    fetch(`http://localhost:3000/api/v1/projects/${id}.json`)
+      .then(results => results.json())
+      .then(data => { 
+        setProjectDetail(data)
+      })
+  }
 
-    fetch(`http://localhost:3000/api/v1/projects/${id}`)
+  function getProjectGallery() {
+    fetch(`http://localhost:3000/api/v1/projects/${id}/photos.json`)
       .then(results => results.json())
       .then(data => { 
         console.log(data)
-        setProjectDetail(data)
+        setProjectGallery(data)
       })
   }
 
   useEffect(() => {
     getProjectData()
+    getProjectGallery()
   }, [])
 
   return (
@@ -49,7 +68,7 @@ export default function Project() {
         </div>
 
         <div className="project__summary">
-          <h1 className="title-default">Central Saint Giles</h1>
+          <h1 className="title-default">{projectDetail.name}</h1>
           <div className="project__summary-content">
             <img src={projectDetail.thumbnail} />
 
@@ -61,12 +80,12 @@ export default function Project() {
 
               <div className="project__summary-text">
                 <span className="project__summary-key">Area</span>
-                <span className="project__summary-value">{projectDetail.area}</span>
+                <span className="project__summary-value">{projectDetail.area} m&#178;</span>
               </div>
 
               <div className="project__summary-text">
                 <span className="project__summary-key">Construction Cost</span>
-                <span className="project__summary-value">{projectDetail.cost}</span>
+                <span className="project__summary-value">{projectDetail.cost} NOK</span>
               </div>
 
               <div className="project__summary-text">
@@ -84,8 +103,24 @@ export default function Project() {
         </div>
       </div>
 
+      { projectGallery.length != 0 &&
+        ( <>
+            <div className="component-wrapper section-heading">
+              <h1>Gallery</h1>
+            </div>
+            <div className="project__gallery-wrapper component-wrapper">
+              {
+                projectGallery.map((gallery, index) => {
+                  return <ProjectGallery title={gallery.title} photo={gallery.photo} key={gallery.title+index} location={projectDetail.location} />
+                })
+              }
+            </div>
+          </>
+        ) 
+      }
+
       <div className="component-wrapper section-heading">
-        <h1>Gallery</h1>
+        <h1>Development Team</h1>
       </div>
     </>
   )

@@ -22,25 +22,25 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="navbar__link">
-              <a href="#services">
+              <Link to="/#services">
                 <span className="navbar__link-numbers">2</span>
                 <span>Services</span>
-              </a>
+              </Link>
             </li>
             <li className="navbar__link">
-              <a href="#services">
+              <Link to="/projects">
                 <span className="navbar__link-numbers">3</span>
                 <span>Projects</span>
-              </a>
+              </Link>
             </li>
             <li className="navbar__link">
-              <a href="#services">
+              <a href="#teams">
                 <span className="navbar__link-numbers">4</span>
                 <span>Team</span>
               </a>
             </li>
             <li className="navbar__link">
-              <a href="#services">
+              <a href="#blogs">
                 <span className="navbar__link-numbers">5</span>
                 <span>Blog</span>
               </a>
