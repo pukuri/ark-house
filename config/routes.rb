@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :members
+  resources :teams
   resources :project_photos
   resources :projects
 
@@ -6,7 +8,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :projects, only: [ :index, :show ], defaults: { format: :json }
       resources :project_photos, only: [ :index, :show ], defaults: { format: :json }
-      get "projects/:id/photos" => "projects#photos", defautls: { format: :json }
+      resources :teams, only: [ :index, :show ], defaults: { format: :json }
+      get "projects/:id/photos" => "projects#photos", defaults: { format: :json }
+      get "teams/:id/members" => "teams#members", defaults: { format: :json }
     end
   end
 
