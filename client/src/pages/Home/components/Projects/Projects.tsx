@@ -24,10 +24,9 @@ export default function Projects() {
   const [projectOverviewData, setProjectOverviewData] = useState(mockProjectOverviewData)
 
   function getProjectOverviewData() {
-    fetch(`http://localhost:3000/api/v1/projects.json`)
+    fetch('http://localhost:3000/api/v1/projects.json')
       .then(results => results.json())
       .then(data => { 
-        console.log(data)
         setProjectOverviewData(data)
       })
   }

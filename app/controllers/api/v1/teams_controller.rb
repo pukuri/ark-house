@@ -8,7 +8,7 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def members
-    @members = Member.where(team_id: params[:id])
+    @members = Member.where(team_id: params[:id]).limit(6)
 
     render :members
   end
