@@ -2,7 +2,7 @@
 
 <h1>Editing project</h1>
 
-<%= render "form", project: @project %>
+<%= render partial: "form", locals: { project: @project, members: @members } %>
 
 <br>
 

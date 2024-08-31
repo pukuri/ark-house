@@ -47,6 +47,11 @@
   </div>
 
   <div>
+    <%= form.label :members, style: "display: block" %>
+    <%= form.select 'member', Member.all.collect { |m| [m.name, m.title] }, {:prompt => 'Select Member' }, { :multiple => true } %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

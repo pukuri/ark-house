@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @members = Member.all
   end
 
   # POST /projects or /projects.json
